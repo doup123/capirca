@@ -1,10 +1,15 @@
 #
 # Sample naming defintions for network objects
 #
+
 RFC1918 = 10.0.0.0/8      # non-public
           172.16.0.0/12   # non-public
           192.168.0.0/16  # non-public
+ADMINS= 147.102.13.157
+        147.102.13.158
+        147.102.13.202
 
+DEST_IP=147.102.13.199
 INTERNAL = RFC1918
 
 LOOPBACK = 127.0.0.0/8  # loopback

@@ -70,7 +70,7 @@ flags.DEFINE_string(
     'Individual policy file to generate.')
 flags.DEFINE_string(
     'output_directory',
-    './',
+    './access_list_output',
     'Directory to output the rendered acls.')
 flags.DEFINE_boolean(
     'optimize',

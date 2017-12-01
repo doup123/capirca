@@ -1,0 +1,25 @@
+header {
+  comment:: "Admin ssh acl"
+  target:: speedway INPUT ACCEPT
+}
+
+term permit-ssh-servers {
+  destination-address:: DEST_IP
+  source-address:: ADMINS
+  protocol:: tcp
+  destination-port:: SSH
+  action:: accept
+}
+
+term default-deny {
+  action:: deny
+}
+
+header {
+  comment:: "Admin ssh acl"
+  target:: speedway FORWARD DROP
+}
+
+term default-deny {
+  action:: deny
+}
