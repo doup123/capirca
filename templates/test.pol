@@ -1,0 +1,57 @@
+###INCOMING_TRAFFIC###
+header {
+  comment:: "Administrators access"
+  target:: speedway INPUT ACCEPT
+}
+{% set counter = 0 -%}
+{% for service in services -%}
+term permit_{{ service }}_admins {
+  destination-address:: DEST_IP
+  source-address:: ADMINS
+  protocol:: tcp
+  destination-port:: {{ service }}
+  action:: accept
+}
+{% set counter = counter + 1 -%}
+{% endfor -%}
+
+term base-allow-icmp-in {
+  protocol:: icmp
+  icmp-type:: echo-request
+  action:: accept
+}
+term default-deny {
+  action:: deny
+}
+
+
+###OUTGOING_TRAFFIC###
+
+header {
+  comment:: "OUTGOING TRAFFIC"
+  target:: speedway OUTPUT DROP
+}
+term base-allow-lo0-out {
+  comment:: "Allow all loopback communications"
+  verbatim::  iptables "-A OUTPUT -o lo -j ACCEPT"
+}
+term base-allow-est-out {
+  option:: established
+  action:: accept
+}
+term base-allow-icmp-out {
+  protocol:: icmp
+  action:: accept
+}
+
+
+
+###DENY_FORWARD_TRAFFIC###
+header {
+  comment:: "Drop forward traffic"
+  target:: speedway FORWARD DROP
+}
+term base-forwarding-deny {
+  action:: reject
+}
+

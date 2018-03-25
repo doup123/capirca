@@ -1,0 +1,25 @@
+header {
+  comment:: "Administrators ssh access"
+  target:: speedway INPUT ACCEPT
+}
+term permit_ssh_admins {
+  destination-address:: DEST_IP
+  source-address:: ADMINS
+  protocol:: tcp
+  destination-port:: SSH
+  action:: accept
+}
+term permit_ssh_admins {
+  destination-address:: DEST_IP
+  source-address:: ADMINS
+  protocol:: tcp
+  destination-port:: NTP
+  action:: accept
+}
+term permit_ssh_admins {
+  destination-address:: DEST_IP
+  source-address:: ADMINS
+  protocol:: tcp
+  destination-port:: DNS
+  action:: accept
+}
