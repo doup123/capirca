@@ -55,7 +55,7 @@ term base-allow-icmp-out {
 
 
 
-###DENY_FORWARD_TRAFFIC##
+###DENY_FORWARD_TRAFFIC###
 header {
   comment:: "Drop forward traffic"
   target:: speedway FORWARD DROP

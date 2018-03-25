@@ -1,4 +1,5 @@
 import os
+import sys
 from jinja2 import Environment, FileSystemLoader
 
 PATH = os.path.dirname(os.path.abspath(__file__))
@@ -32,7 +33,7 @@ def create_network(destination_ip):
         networking = render_template('NETWORK.net.jinja', dst_ip)
         f.write(networking)
 def main():
-    ip="147.102.13.222"
+    ip=sys.argv[1]
     create_network(ip)
     create_access_control(ip)
 
