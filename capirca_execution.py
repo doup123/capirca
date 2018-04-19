@@ -1,3 +1,3 @@
 import os
-os.system("python capirca_wrapper.py 147.102.13.198")
+os.system("python capirca_wrapper.py 172.16.85.1 172.16.85.128")
 os.system("python aclgen.py")

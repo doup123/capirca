@@ -7,7 +7,7 @@ header {
 {% for service in services -%}
 term permit_{{ service }}_admins {
   destination-address:: DEST_IP
-  source-address:: ADMINS
+  source-address:: SOURCE_IP
   protocol:: tcp
   destination-port:: {{ service }}
   action:: accept

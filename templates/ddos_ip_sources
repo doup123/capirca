@@ -1,3 +1,4 @@
+
 #
 # Sample naming defintions for network objects
 #
@@ -95,3 +96,5 @@ TACACS_SERVERS = 10.1.0.1/32  # Example tacacs server
 
 SOURCE_IP={{ source_ip }}
 DEST_IP={{ destination_ip }}
+VICTIM={{ destination_ip }}
+MALICIOUS={{ source_ip }}

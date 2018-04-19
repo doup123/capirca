@@ -1,0 +1,18 @@
+
+header {
+  comment:: "RCMO Firewall"
+  target:: speedway MITIGATION ACCEPT
+}
+
+term deny_l7 {
+  destination-address:: VICTIM
+  source-address:: MALICIOUS
+  protocol:: tcp
+  source-interface:: ens19
+  destination-port:: {{ service }}
+  action:: deny
+}
+
+term allow_all {
+  action:: accept
+}
